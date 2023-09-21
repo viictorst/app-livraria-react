@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function Login() {
     return (
         <View>
-            <Text></Text>
+            <Text>Tela de Login</Text>
             <StatusBar style="auto" />
         </View>
     );
