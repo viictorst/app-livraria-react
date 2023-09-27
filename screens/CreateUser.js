@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 
 export default function CreateUser() {
     return (
-        <View>
-            <Text></Text>
+        <View style={styles.container}>
+            <Text>Tela de Criação de usuário</Text>
             <StatusBar style="auto" />
         </View>
     );

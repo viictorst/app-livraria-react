@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Login() {
+export default function FeedBooks() {
     return (
-        <View>
-            <Text>Tela de Login</Text>
+        <View style={styles.container}>
+            <Text>Tela de Feed dos Livros</Text>
             <StatusBar style="auto" />
         </View>
     );

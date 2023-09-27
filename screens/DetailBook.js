@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function FeedBooks() {
+export default function DetailBook() {
     return (
-        <View>
-            <Text></Text>
+        <View style={styles.container}>
+            <Text>Tela de Detalhes do livro</Text>
             <StatusBar style="auto" />
         </View>
     );

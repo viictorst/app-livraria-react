@@ -3,10 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 
-import Login from "./Login";
-import CreateUser from "./CreateUser"
-import FeedBooks from "./FeedBooks"
-import DetailBook from "./DetailBook";
+import Login from "./screens/Login";
+import CreateUser from "./screens/CreateUser"
+import FeedBooks from "./screens/FeedBooks"
+import DetailBook from "./screens/DetailBook";
 
 const Stack = createNativeStackNavigator();
 
