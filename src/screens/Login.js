@@ -1,48 +1,68 @@
 import { StyleSheet, Text, SafeAreaView, Image, View, VirtualizedList, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default function Login() {
     return (
         <SafeAreaView style={styles.container}>
+            <ScrollView>
 
-        <ScrollView>
-            <View style={styles.topo}>
-                <Image
-                    style={styles.login}
-                    source={require('../assets/login.png')}
-                />
-            </View>
+                <View style={styles.topo}>
+                    <Image
+                        style={styles.login}
+                        source={require('../assets/login.png')}
+                    />
+                </View>
 
-            <Text style={styles.titulo}>LOGIN</Text>
+                <Text style={styles.titulo}>LOGIN</Text>
 
-            <View style={styles.containerTextInput}>
-                <TextInput
-                    style={styles.input}
-                    placeholder='E-mail'
-                    placeholderTextColor='#ccc'
-                    keyboardType='email-adress'
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder='Senha'
-                    placeholderTextColor='#ccc'
-                    secureTextEntry={true}
-                />
-            </View>
+                <View style={styles.containerTextInput}>
 
-            <TouchableOpacity>
-                <Text style={styles.botaoLogin}> Login </Text>
-            </TouchableOpacity>
+                    <MaterialIcons name='email' size={20} color={'#666'} />
+                    <TextInput
+                        style={styles.input}
+                        placeholder='E-mail'
+                        placeholderTextColor='#ccc'
+                        keyboardType='email-adress'
+                    />
+                </View>
 
-            <Text style={styles.logarCom}>Logar com...</Text>
+                <View style={styles.containerTextInput}>
+                    <MaterialIcons name='form-textbox-password' size={20} color={'#666'} />
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Senha'
+                        placeholderTextColor='#ccc'
+                        secureTextEntry={true}
+                    />
+                </View>
 
-            <View style={styles.opcoesLogin}>
-                <Image
-                    style={styles.login}
-                    source={require('../assets/login.png')}
-                />
-            </View>
-        </ScrollView>
+                <TouchableOpacity>
+                    <Text style={styles.botaoLogin}> Login </Text>
+                </TouchableOpacity>
 
+                <Text style={styles.logarCom}>Logar com...</Text>
+
+                <View style={styles.containerLoginWith}>
+                    <TouchableOpacity onPress={() => { }} style={styles.buttonLoginWith}>
+                        <Image
+                            style={{}}
+                            source={require('../assets/google.png')}
+                        />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => { }} style={styles.buttonLoginWith}>
+                        <Image
+                            style={{}}
+                            source={require('../assets/facebook.png')}
+                        />
+                    </TouchableOpacity>
+                </View>
+
+                <TouchableOpacity onPress={() => { }}>
+                    <Text style={styles.createAccount}>CRIAR CONTA</Text>
+                </TouchableOpacity>
+
+            </ScrollView>
         </SafeAreaView>
     );
 }
@@ -51,6 +71,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        padding: 16,
     },
 
     topo: {
@@ -65,17 +86,20 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: '500',
         color: '#333',
-        marginLeft: 16,
     },
 
     containerTextInput: {
-        padding: 16,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderBottomWidth: 2,
+        borderBottomColor: '#ccc',
+        paddingBottom: 8,
+        marginBottom: 25,
     },
 
     input: {
-        padding: 15,
-        borderBottomWidth: 2,
-        borderBottomColor: '#ccc',
+        padding: 10,
     },
 
     botaoLogin: {
@@ -94,5 +118,29 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
+    containerLoginWith: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 
+    buttonLoginWith: {
+        borderWidth: 2,
+        borderColor: '#ccc',
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 25,
+        paddingRight: 25,
+        margin: 8,
+        borderRadius: 10,
+    },
+
+    createAccount: {
+        color: '#00b2ff',
+        fontWeight: '700',
+        fontSize: 14,
+        textAlign: 'center',
+        margin: 10,
+    }
 });
