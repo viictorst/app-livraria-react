@@ -19,7 +19,7 @@ export default function App() {
         <Stack.Screen 
           name='Login'
           component={Login}
-          options={{title:"LOGIN"}}
+          options={{title:"FAÇA SEU LOGIN OU CADASTRE-SE"}}
         />
 
       </Stack.Navigator>
