@@ -3,8 +3,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default function Login() {
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView>
+        <ScrollView>
+            <SafeAreaView style={styles.container}>
+
 
                 <View style={styles.topo}>
                     <Image
@@ -62,9 +63,9 @@ export default function Login() {
                     <Text style={styles.createAccount}>CRIAR CONTA</Text>
                 </TouchableOpacity>
 
-            </ScrollView>
 
-        </SafeAreaView>
+            </SafeAreaView>
+        </ScrollView>
     );
 }
 
