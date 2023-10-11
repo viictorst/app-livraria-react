@@ -63,6 +63,7 @@ export default function Login() {
                 </TouchableOpacity>
 
             </ScrollView>
+
         </SafeAreaView>
     );
 }
