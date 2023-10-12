@@ -14,13 +14,32 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Login">
 
-        <Stack.Screen 
+        <Stack.Screen
           name='Login'
           component={Login}
-          options={{title:"FAÇA SEU LOGIN OU CADASTRE-SE"}}
+          options={{
+            title: "FAÇA SEU LOGIN OU CADASTRE-SE",
+            headerTitleStyle: {
+              color: '#333',
+              fontWeight: 'bold'
+            }
+          }}
         />
+
+        <Stack.Screen
+          name='CreateUser'
+          component={CreateUser}
+          options={{
+            title: "CADASTRO",
+            headerTitleStyle: {
+              color: '#333',
+              fontWeight: 'bold'
+            }
+          }}
+        />
+
 
       </Stack.Navigator>
     </NavigationContainer>

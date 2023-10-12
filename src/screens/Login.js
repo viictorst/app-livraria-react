@@ -1,71 +1,76 @@
 import { StyleSheet, Text, SafeAreaView, Image, View, VirtualizedList, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export default function Login() {
+export default function Login({ navigation }) {
     return (
-        <ScrollView>
-            <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container}>
 
 
-                <View style={styles.topo}>
+            <View style={styles.topo}>
+                <Image
+                    style={styles.login}
+                    source={require('../assets/login.png')}
+                />
+            </View>
+
+            {/* <Text style={styles.titulo}>LOGIN</Text> */}
+
+            <View style={styles.containerTextInput}>
+
+                <MaterialIcons name='email' size={20} color={'#666'} style={styles.iconInput} />
+                <TextInput
+                    style={styles.input}
+                    placeholder='E-mail'
+                    placeholderTextColor='#ccc'
+                    keyboardType='email-adress'
+                />
+            </View>
+
+            <View style={styles.containerTextInput}>
+                <MaterialIcons name='form-textbox-password' size={20} color={'#666'} style={styles.iconInput} />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Senha'
+                    placeholderTextColor='#ccc'
+                    secureTextEntry={true}
+                />
+            </View>
+
+            <TouchableOpacity>
+                <Text style={styles.botaoLogin}> Login </Text>
+            </TouchableOpacity>
+
+
+            <View style={styles.viewLoginWith}>
+                <View style={styles.barLoginWith}></View>
+
+                <Text style={styles.logarCom}> Ou faça login com </Text>
+
+                <View style={styles.barLoginWith}></View>
+            </View>
+
+            <View style={styles.containerLoginWith}>
+                <TouchableOpacity onPress={() => { }} style={styles.buttonLoginWith}>
                     <Image
-                        style={styles.login}
-                        source={require('../assets/login.png')}
+                        style={{}}
+                        source={require('../assets/google.png')}
                     />
-                </View>
-
-                <Text style={styles.titulo}>LOGIN</Text>
-
-                <View style={styles.containerTextInput}>
-
-                    <MaterialIcons name='email' size={20} color={'#666'} />
-                    <TextInput
-                        style={styles.input}
-                        placeholder='E-mail'
-                        placeholderTextColor='#ccc'
-                        keyboardType='email-adress'
-                    />
-                </View>
-
-                <View style={styles.containerTextInput}>
-                    <MaterialIcons name='form-textbox-password' size={20} color={'#666'} />
-                    <TextInput
-                        style={styles.input}
-                        placeholder='Senha'
-                        placeholderTextColor='#ccc'
-                        secureTextEntry={true}
-                    />
-                </View>
-
-                <TouchableOpacity>
-                    <Text style={styles.botaoLogin}> Login </Text>
                 </TouchableOpacity>
 
-                <Text style={styles.logarCom}>Logar com...</Text>
-
-                <View style={styles.containerLoginWith}>
-                    <TouchableOpacity onPress={() => { }} style={styles.buttonLoginWith}>
-                        <Image
-                            style={{}}
-                            source={require('../assets/google.png')}
-                        />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => { }} style={styles.buttonLoginWith}>
-                        <Image
-                            style={{}}
-                            source={require('../assets/facebook.png')}
-                        />
-                    </TouchableOpacity>
-                </View>
-
-                <TouchableOpacity onPress={() => { }}>
-                    <Text style={styles.createAccount}>CRIAR CONTA</Text>
+                <TouchableOpacity onPress={() => { }} style={styles.buttonLoginWith}>
+                    <Image
+                        style={{}}
+                        source={require('../assets/facebook.png')}
+                    />
                 </TouchableOpacity>
+            </View>
+
+            <TouchableOpacity onPress={() => { navigation.navigate('CreateUser'); }}>
+                <Text style={styles.createAccount}>CRIAR CONTA</Text>
+            </TouchableOpacity>
 
 
-            </SafeAreaView>
-        </ScrollView>
+        </SafeAreaView>
     );
 }
 
@@ -81,43 +86,67 @@ const styles = StyleSheet.create({
     },
 
     login: {
-        width: 350,
+        width: 250,
+        marginBottom: 30,
     },
 
-    titulo: {
-        fontSize: 28,
-        fontWeight: '500',
-        color: '#333',
-    },
+    // titulo: {
+    //     fontSize: 28,
+    //     fontWeight: '500',
+    //     color: '#333',
+    // },
 
     containerTextInput: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        width: '80%',
+        marginLeft: '10%',
+        marginBottom: 25,
         borderBottomWidth: 2,
         borderBottomColor: '#ccc',
-        paddingBottom: 8,
-        marginBottom: 25,
+    },
+
+    iconInput: {
+        marginRight: 16
     },
 
     input: {
-        padding: 10,
+        padding: 10
     },
 
     botaoLogin: {
-        margin: 16,
-        padding: 18,
+        marginLeft: 33,
+        marginRight: 33,
+        padding: 15,
         color: '#fff',
         backgroundColor: '#00b2ff',
-        borderRadius: 10,
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 50,
+        borderBottomRightRadius: 5,
+        borderBottomLeftRadius: 50,
         fontWeight: '700',
         fontSize: 16,
         textAlign: 'center',
     },
 
+    viewLoginWith: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    barLoginWith: {
+        width: '20%',
+        borderColor: '#ccc',
+        borderBottomWidth: 1,
+    },
+
     logarCom: {
-        margin: 10,
+        margin: 15,
         textAlign: 'center',
+        color: '#999'
     },
 
     containerLoginWith: {
@@ -132,10 +161,10 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
         paddingTop: 8,
         paddingBottom: 8,
-        paddingLeft: 25,
-        paddingRight: 25,
+        paddingLeft: 8,
+        paddingRight: 8,
         margin: 8,
-        borderRadius: 10,
+        borderRadius: 50,
     },
 
     createAccount: {
