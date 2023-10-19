@@ -40,6 +40,18 @@ export default function App() {
           }}
         />
 
+        <Stack.Screen
+          name='FeedBooks'
+          component={FeedBooks}
+          options={{
+              title: "LIBRI",
+              headerTitleStyle: {
+              color: '#333',
+              fontWeight: 'bold'
+            }
+          }}
+        />
+
 
       </Stack.Navigator>
     </NavigationContainer>

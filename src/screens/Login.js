@@ -1,7 +1,33 @@
+import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, Image, View, VirtualizedList, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default function Login({ navigation }) {
+
+    const [senhaInvisivel, esconderSenha] = useState(true);
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    // FUNÇÕES
+
+    const mudarVisibilidade = () => {
+        esconderSenha(!senhaInvisivel);
+    };    
+
+    const passwordIcon = senhaInvisivel ? 'eye-off' : 'eye';
+
+    const verificarLogin = () => {
+        if (email === '1' && senha === '1') {
+            navigation.navigate('FeedBooks');
+        }
+        else if (email === 'cristianocorrea3@gmail.com' && senha === '123456') {
+            navigation.navigate('FeedBooks');
+        }
+        else {
+            alert('Email ou senha incorretos!');
+        }
+    };
+
     return (
         <SafeAreaView style={styles.container}>
 
@@ -13,30 +39,33 @@ export default function Login({ navigation }) {
                 />
             </View>
 
-            {/* <Text style={styles.titulo}>LOGIN</Text> */}
-
             <View style={styles.containerTextInput}>
-
                 <MaterialIcons name='email' size={20} color={'#666'} style={styles.iconInput} />
-                <TextInput
+                <TextInput 
                     style={styles.input}
                     placeholder='E-mail'
                     placeholderTextColor='#ccc'
                     keyboardType='email-adress'
+                    onChangeText={(text) => setEmail(text)}
                 />
             </View>
 
             <View style={styles.containerTextInput}>
                 <MaterialIcons name='form-textbox-password' size={20} color={'#666'} style={styles.iconInput} />
                 <TextInput
-                    style={styles.input}
-                    placeholder='Senha'
-                    placeholderTextColor='#ccc'
-                    secureTextEntry={true}
+                        style={styles.input}
+                        placeholder="Senha"
+                        placeholderTextColor='#ccc'
+                        keyboardType="default"
+                        secureTextEntry={senhaInvisivel}
+                        onChangeText={(text) => setSenha(text)}
                 />
+                <TouchableOpacity style={styles.icon} onPress={mudarVisibilidade}>
+                        <MaterialIcons name={passwordIcon} color={'#666'} size={25} />
+                </TouchableOpacity>
             </View>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={verificarLogin}>
                 <Text style={styles.botaoLogin}> Login </Text>
             </TouchableOpacity>
 
@@ -115,12 +144,16 @@ const styles = StyleSheet.create({
         padding: 10
     },
 
+    icon: {
+        marginLeft: 150
+    },
+
     botaoLogin: {
         marginLeft: 33,
         marginRight: 33,
         padding: 15,
         color: '#fff',
-        backgroundColor: '#00b2ff',
+        backgroundColor: '#3F79F9',
         borderTopLeftRadius: 5,
         borderTopRightRadius: 50,
         borderBottomRightRadius: 5,
@@ -168,7 +201,7 @@ const styles = StyleSheet.create({
     },
 
     createAccount: {
-        color: '#00b2ff',
+        color: '#3F79F9',
         fontWeight: '700',
         fontSize: 14,
         textAlign: 'center',
