@@ -18,10 +18,10 @@ export default function Login({ navigation }) {
 
     const verificarLogin = () => {
         if (email === '1' && senha === '1') {
-            navigation.navigate('FeedBooks');
+            navigation.navigate('DrawerMenu');
         }
         else if (email === 'cristianocorrea3@gmail.com' && senha === '123456') {
-            navigation.navigate('FeedBooks');
+            navigation.navigate('DrawerMenu');
         }
         else {
             alert('Email ou senha incorretos!');
@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
 
     login: {
         width: 250,
+        marginTop: 100,
         marginBottom: 30,
     },
 

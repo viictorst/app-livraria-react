@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Login from "./src/screens/Login";
 import CreateUser from "./src/screens/CreateUser"
+import DrawerMenu from "./drawerMenu/DrawerMenu";
 import FeedBooks from "./src/screens/FeedBooks"
 import DetailBook from "./src/screens/DetailBook";
 
@@ -14,17 +15,14 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName='Login'>
 
         <Stack.Screen
           name='Login'
           component={Login}
           options={{
-            title: "FAÇA SEU LOGIN OU CADASTRE-SE",
-            headerTitleStyle: {
-              color: '#333',
-              fontWeight: 'bold'
-            }
+            title: '',
+            headerShown: false
           }}
         />
 
@@ -41,6 +39,15 @@ export default function App() {
         />
 
         <Stack.Screen
+          name='DrawerMenu'
+          component={DrawerMenu}
+          options={{
+            title: '',
+            headerShown: false
+          }}
+        />
+
+        {/* <Stack.Screen
           name='FeedBooks'
           component={FeedBooks}
           options={{
@@ -50,7 +57,7 @@ export default function App() {
               fontWeight: 'bold'
             }
           }}
-        />
+        /> */}
 
 
       </Stack.Navigator>
